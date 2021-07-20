@@ -30,6 +30,11 @@ class CapitalizerStub(object):
                 request_serializer=capitalizer__pb2.StringRequest.SerializeToString,
                 response_deserializer=capitalizer__pb2.StringResponse.FromString,
                 )
+        self.DrawA = channel.unary_unary(
+                '/Capitalizer/DrawA',
+                request_serializer=capitalizer__pb2.FileRequest.SerializeToString,
+                response_deserializer=capitalizer__pb2.FileResponse.FromString,
+                )
 
 
 class CapitalizerServicer(object):
@@ -37,20 +42,29 @@ class CapitalizerServicer(object):
     """
 
     def Capitalize(self, request, context):
-        """Make all letters big
+        """Make first letter upper case
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def Upper(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Make all letters upper case
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
     def Lower(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+        """Make all letters lower case
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def DrawA(self, request, context):
+        """Draw upper case A on image
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
@@ -72,6 +86,11 @@ def add_CapitalizerServicer_to_server(servicer, server):
                     servicer.Lower,
                     request_deserializer=capitalizer__pb2.StringRequest.FromString,
                     response_serializer=capitalizer__pb2.StringResponse.SerializeToString,
+            ),
+            'DrawA': grpc.unary_unary_rpc_method_handler(
+                    servicer.DrawA,
+                    request_deserializer=capitalizer__pb2.FileRequest.FromString,
+                    response_serializer=capitalizer__pb2.FileResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -132,5 +151,22 @@ class Capitalizer(object):
         return grpc.experimental.unary_unary(request, target, '/Capitalizer/Lower',
             capitalizer__pb2.StringRequest.SerializeToString,
             capitalizer__pb2.StringResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def DrawA(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/Capitalizer/DrawA',
+            capitalizer__pb2.FileRequest.SerializeToString,
+            capitalizer__pb2.FileResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

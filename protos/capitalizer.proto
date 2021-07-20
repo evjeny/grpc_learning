@@ -10,6 +10,9 @@ service Capitalizer {
   
   // Make all letters lower case
   rpc Lower (StringRequest) returns (StringResponse) {}
+
+  // Draw upper case A on image
+  rpc DrawA (FileRequest) returns (FileResponse) {}
 }
 
 message StringRequest {
@@ -18,4 +21,12 @@ message StringRequest {
 
 message StringResponse {
   string message = 1;
+}
+
+message FileRequest {
+  bytes file = 1;
+}
+
+message FileResponse {
+  bytes file = 1;
 }
