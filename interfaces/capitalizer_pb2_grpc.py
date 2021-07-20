@@ -45,6 +45,11 @@ class CapitalizerStub(object):
                 request_serializer=capitalizer__pb2.ActionRequest.SerializeToString,
                 response_deserializer=capitalizer__pb2.StringResponse.FromString,
                 )
+        self.OptionalUpper = channel.unary_unary(
+                '/Capitalizer/OptionalUpper',
+                request_serializer=capitalizer__pb2.OptionalStringRequest.SerializeToString,
+                response_deserializer=capitalizer__pb2.StringResponse.FromString,
+                )
 
 
 class CapitalizerServicer(object):
@@ -93,6 +98,13 @@ class CapitalizerServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def OptionalUpper(self, request, context):
+        """Make optional text upper case
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_CapitalizerServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -124,6 +136,11 @@ def add_CapitalizerServicer_to_server(servicer, server):
             'DoAction': grpc.unary_unary_rpc_method_handler(
                     servicer.DoAction,
                     request_deserializer=capitalizer__pb2.ActionRequest.FromString,
+                    response_serializer=capitalizer__pb2.StringResponse.SerializeToString,
+            ),
+            'OptionalUpper': grpc.unary_unary_rpc_method_handler(
+                    servicer.OptionalUpper,
+                    request_deserializer=capitalizer__pb2.OptionalStringRequest.FromString,
                     response_serializer=capitalizer__pb2.StringResponse.SerializeToString,
             ),
     }
@@ -235,6 +252,23 @@ class Capitalizer(object):
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/Capitalizer/DoAction',
             capitalizer__pb2.ActionRequest.SerializeToString,
+            capitalizer__pb2.StringResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def OptionalUpper(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/Capitalizer/OptionalUpper',
+            capitalizer__pb2.OptionalStringRequest.SerializeToString,
             capitalizer__pb2.StringResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

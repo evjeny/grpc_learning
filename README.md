@@ -1,5 +1,6 @@
 # grpc_learning
 Lessons for gRPC
+Protobuf version = 2
 
 ***
 
@@ -24,3 +25,4 @@ View `protos/capitalizer.proto`:
 * [x] Nested type message
 * [x] Repeated type message
 * [x] Enum type message
+* [x] Optional messages

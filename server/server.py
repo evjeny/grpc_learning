@@ -49,3 +49,6 @@ class Capitalizer(capitalizer_pb2_grpc.CapitalizerServicer):
             message = "!!!"
         
         return capitalizer_pb2.StringResponse(message=message)
+    
+    def OptionalUpper(self, request, context):
+        return capitalizer_pb2.StringResponse(message=request.message.upper())

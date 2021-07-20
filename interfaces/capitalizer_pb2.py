@@ -17,10 +17,10 @@ _sym_db = _symbol_database.Default()
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='capitalizer.proto',
   package='',
-  syntax='proto3',
+  syntax='proto2',
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x11\x63\x61pitalizer.proto\" \n\rStringRequest\x12\x0f\n\x07message\x18\x01 \x01(\t\"!\n\x0eStringResponse\x12\x0f\n\x07message\x18\x01 \x01(\t\"\x1b\n\x0b\x46ileRequest\x12\x0c\n\x04\x66ile\x18\x01 \x01(\x0c\"\x1c\n\x0c\x46ileResponse\x12\x0c\n\x04\x66ile\x18\x01 \x01(\x0c\",\n\x05Point\x12\t\n\x01x\x18\x01 \x01(\x11\x12\t\n\x01y\x18\x02 \x01(\x11\x12\r\n\x05value\x18\x03 \x01(\t\"\'\n\rPointsRequest\x12\x16\n\x06points\x18\x01 \x03(\x0b\x32\x06.Point\"(\n\x0ePointsResponse\x12\x16\n\x06points\x18\x01 \x03(\x0b\x32\x06.Point\"9\n\rActionRequest\x12\x0f\n\x07message\x18\x01 \x01(\t\x12\x17\n\x06\x61\x63tion\x18\x02 \x01(\x0e\x32\x07.Action*;\n\x06\x41\x63tion\x12\x0b\n\x07NOTHING\x10\x00\x12\x0e\n\nCAPITALIZE\x10\x01\x12\t\n\x05UPPER\x10\x02\x12\t\n\x05LOWER\x10\x03\x32\x9f\x02\n\x0b\x43\x61pitalizer\x12/\n\nCapitalize\x12\x0e.StringRequest\x1a\x0f.StringResponse\"\x00\x12*\n\x05Upper\x12\x0e.StringRequest\x1a\x0f.StringResponse\"\x00\x12*\n\x05Lower\x12\x0e.StringRequest\x1a\x0f.StringResponse\"\x00\x12&\n\x05\x44rawA\x12\x0c.FileRequest\x1a\r.FileResponse\"\x00\x12\x30\n\x0bUpperPoints\x12\x0e.PointsRequest\x1a\x0f.PointsResponse\"\x00\x12-\n\x08\x44oAction\x12\x0e.ActionRequest\x1a\x0f.StringResponse\"\x00\x62\x06proto3'
+  serialized_pb=b'\n\x11\x63\x61pitalizer.proto\" \n\rStringRequest\x12\x0f\n\x07message\x18\x01 \x02(\t\"!\n\x0eStringResponse\x12\x0f\n\x07message\x18\x01 \x02(\t\"\x1b\n\x0b\x46ileRequest\x12\x0c\n\x04\x66ile\x18\x01 \x02(\x0c\"\x1c\n\x0c\x46ileResponse\x12\x0c\n\x04\x66ile\x18\x01 \x02(\x0c\",\n\x05Point\x12\t\n\x01x\x18\x01 \x02(\x11\x12\t\n\x01y\x18\x02 \x02(\x11\x12\r\n\x05value\x18\x03 \x02(\t\"\'\n\rPointsRequest\x12\x16\n\x06points\x18\x01 \x03(\x0b\x32\x06.Point\"(\n\x0ePointsResponse\x12\x16\n\x06points\x18\x01 \x03(\x0b\x32\x06.Point\"9\n\rActionRequest\x12\x0f\n\x07message\x18\x01 \x02(\t\x12\x17\n\x06\x61\x63tion\x18\x02 \x02(\x0e\x32\x07.Action\"6\n\x15OptionalStringRequest\x12\x1d\n\x07message\x18\x01 \x01(\t:\x0chello world!*;\n\x06\x41\x63tion\x12\x0b\n\x07NOTHING\x10\x00\x12\x0e\n\nCAPITALIZE\x10\x01\x12\t\n\x05UPPER\x10\x02\x12\t\n\x05LOWER\x10\x03\x32\xdb\x02\n\x0b\x43\x61pitalizer\x12/\n\nCapitalize\x12\x0e.StringRequest\x1a\x0f.StringResponse\"\x00\x12*\n\x05Upper\x12\x0e.StringRequest\x1a\x0f.StringResponse\"\x00\x12*\n\x05Lower\x12\x0e.StringRequest\x1a\x0f.StringResponse\"\x00\x12&\n\x05\x44rawA\x12\x0c.FileRequest\x1a\r.FileResponse\"\x00\x12\x30\n\x0bUpperPoints\x12\x0e.PointsRequest\x1a\x0f.PointsResponse\"\x00\x12-\n\x08\x44oAction\x12\x0e.ActionRequest\x1a\x0f.StringResponse\"\x00\x12:\n\rOptionalUpper\x12\x16.OptionalStringRequest\x1a\x0f.StringResponse\"\x00'
 )
 
 _ACTION = _descriptor.EnumDescriptor(
@@ -53,8 +53,8 @@ _ACTION = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=337,
-  serialized_end=396,
+  serialized_start=393,
+  serialized_end=452,
 )
 _sym_db.RegisterEnumDescriptor(_ACTION)
 
@@ -76,7 +76,7 @@ _STRINGREQUEST = _descriptor.Descriptor(
   fields=[
     _descriptor.FieldDescriptor(
       name='message', full_name='StringRequest.message', index=0,
-      number=1, type=9, cpp_type=9, label=1,
+      number=1, type=9, cpp_type=9, label=2,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -89,7 +89,7 @@ _STRINGREQUEST = _descriptor.Descriptor(
   ],
   serialized_options=None,
   is_extendable=False,
-  syntax='proto3',
+  syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],
@@ -108,7 +108,7 @@ _STRINGRESPONSE = _descriptor.Descriptor(
   fields=[
     _descriptor.FieldDescriptor(
       name='message', full_name='StringResponse.message', index=0,
-      number=1, type=9, cpp_type=9, label=1,
+      number=1, type=9, cpp_type=9, label=2,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -121,7 +121,7 @@ _STRINGRESPONSE = _descriptor.Descriptor(
   ],
   serialized_options=None,
   is_extendable=False,
-  syntax='proto3',
+  syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],
@@ -140,7 +140,7 @@ _FILEREQUEST = _descriptor.Descriptor(
   fields=[
     _descriptor.FieldDescriptor(
       name='file', full_name='FileRequest.file', index=0,
-      number=1, type=12, cpp_type=9, label=1,
+      number=1, type=12, cpp_type=9, label=2,
       has_default_value=False, default_value=b"",
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -153,7 +153,7 @@ _FILEREQUEST = _descriptor.Descriptor(
   ],
   serialized_options=None,
   is_extendable=False,
-  syntax='proto3',
+  syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],
@@ -172,7 +172,7 @@ _FILERESPONSE = _descriptor.Descriptor(
   fields=[
     _descriptor.FieldDescriptor(
       name='file', full_name='FileResponse.file', index=0,
-      number=1, type=12, cpp_type=9, label=1,
+      number=1, type=12, cpp_type=9, label=2,
       has_default_value=False, default_value=b"",
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -185,7 +185,7 @@ _FILERESPONSE = _descriptor.Descriptor(
   ],
   serialized_options=None,
   is_extendable=False,
-  syntax='proto3',
+  syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],
@@ -204,21 +204,21 @@ _POINT = _descriptor.Descriptor(
   fields=[
     _descriptor.FieldDescriptor(
       name='x', full_name='Point.x', index=0,
-      number=1, type=17, cpp_type=1, label=1,
+      number=1, type=17, cpp_type=1, label=2,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='y', full_name='Point.y', index=1,
-      number=2, type=17, cpp_type=1, label=1,
+      number=2, type=17, cpp_type=1, label=2,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='value', full_name='Point.value', index=2,
-      number=3, type=9, cpp_type=9, label=1,
+      number=3, type=9, cpp_type=9, label=2,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -231,7 +231,7 @@ _POINT = _descriptor.Descriptor(
   ],
   serialized_options=None,
   is_extendable=False,
-  syntax='proto3',
+  syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],
@@ -263,7 +263,7 @@ _POINTSREQUEST = _descriptor.Descriptor(
   ],
   serialized_options=None,
   is_extendable=False,
-  syntax='proto3',
+  syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],
@@ -295,7 +295,7 @@ _POINTSRESPONSE = _descriptor.Descriptor(
   ],
   serialized_options=None,
   is_extendable=False,
-  syntax='proto3',
+  syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],
@@ -314,14 +314,14 @@ _ACTIONREQUEST = _descriptor.Descriptor(
   fields=[
     _descriptor.FieldDescriptor(
       name='message', full_name='ActionRequest.message', index=0,
-      number=1, type=9, cpp_type=9, label=1,
+      number=1, type=9, cpp_type=9, label=2,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
       name='action', full_name='ActionRequest.action', index=1,
-      number=2, type=14, cpp_type=8, label=1,
+      number=2, type=14, cpp_type=8, label=2,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -334,12 +334,44 @@ _ACTIONREQUEST = _descriptor.Descriptor(
   ],
   serialized_options=None,
   is_extendable=False,
-  syntax='proto3',
+  syntax='proto2',
   extension_ranges=[],
   oneofs=[
   ],
   serialized_start=278,
   serialized_end=335,
+)
+
+
+_OPTIONALSTRINGREQUEST = _descriptor.Descriptor(
+  name='OptionalStringRequest',
+  full_name='OptionalStringRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='message', full_name='OptionalStringRequest.message', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=True, default_value=b"hello world!".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto2',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=337,
+  serialized_end=391,
 )
 
 _POINTSREQUEST.fields_by_name['points'].message_type = _POINT
@@ -353,6 +385,7 @@ DESCRIPTOR.message_types_by_name['Point'] = _POINT
 DESCRIPTOR.message_types_by_name['PointsRequest'] = _POINTSREQUEST
 DESCRIPTOR.message_types_by_name['PointsResponse'] = _POINTSRESPONSE
 DESCRIPTOR.message_types_by_name['ActionRequest'] = _ACTIONREQUEST
+DESCRIPTOR.message_types_by_name['OptionalStringRequest'] = _OPTIONALSTRINGREQUEST
 DESCRIPTOR.enum_types_by_name['Action'] = _ACTION
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
@@ -412,6 +445,13 @@ ActionRequest = _reflection.GeneratedProtocolMessageType('ActionRequest', (_mess
   })
 _sym_db.RegisterMessage(ActionRequest)
 
+OptionalStringRequest = _reflection.GeneratedProtocolMessageType('OptionalStringRequest', (_message.Message,), {
+  'DESCRIPTOR' : _OPTIONALSTRINGREQUEST,
+  '__module__' : 'capitalizer_pb2'
+  # @@protoc_insertion_point(class_scope:OptionalStringRequest)
+  })
+_sym_db.RegisterMessage(OptionalStringRequest)
+
 
 
 _CAPITALIZER = _descriptor.ServiceDescriptor(
@@ -421,8 +461,8 @@ _CAPITALIZER = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=399,
-  serialized_end=686,
+  serialized_start=455,
+  serialized_end=802,
   methods=[
   _descriptor.MethodDescriptor(
     name='Capitalize',
@@ -480,6 +520,16 @@ _CAPITALIZER = _descriptor.ServiceDescriptor(
     index=5,
     containing_service=None,
     input_type=_ACTIONREQUEST,
+    output_type=_STRINGRESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='OptionalUpper',
+    full_name='Capitalizer.OptionalUpper',
+    index=6,
+    containing_service=None,
+    input_type=_OPTIONALSTRINGREQUEST,
     output_type=_STRINGRESPONSE,
     serialized_options=None,
     create_key=_descriptor._internal_create_key,

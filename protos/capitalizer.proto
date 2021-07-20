@@ -1,4 +1,4 @@
-syntax = "proto3";
+syntax = "proto2";
 
 // Service for string manipulations
 service Capitalizer {
@@ -19,28 +19,31 @@ service Capitalizer {
 
   // Make an action on text
   rpc DoAction (ActionRequest) returns (StringResponse) {}
+
+  // Make optional text upper case
+  rpc OptionalUpper (OptionalStringRequest) returns (StringResponse) {}
 }
 
 message StringRequest {
-  string message = 1;
+  required string message = 1;
 }
 
 message StringResponse {
-  string message = 1;
+  required string message = 1;
 }
 
 message FileRequest {
-  bytes file = 1;
+  required bytes file = 1;
 }
 
 message FileResponse {
-  bytes file = 1;
+  required bytes file = 1;
 }
 
 message Point {
-  sint32 x = 1;
-  sint32 y = 2;
-  string value = 3;
+  required sint32 x = 1;
+  required sint32 y = 2;
+  required string value = 3;
 }
 
 message PointsRequest {
@@ -59,6 +62,10 @@ enum Action {
 }
 
 message ActionRequest {
-  string message = 1;
-  Action action = 2;
+  required string message = 1;
+  required Action action = 2;
+}
+
+message OptionalStringRequest {
+  optional string message = 1 [default = "hello world!"];
 }

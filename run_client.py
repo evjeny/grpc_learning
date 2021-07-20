@@ -41,6 +41,13 @@ def print_action(stub_method, message: str, action, description: str):
     print(description, response.message)
 
 
+def example_optional(stub_method):
+    response = stub_method(capitalizer_pb2.OptionalStringRequest())
+    print("no message:", response.message)
+    response = stub_method(capitalizer_pb2.OptionalStringRequest(message="with message"))
+    print("has message:", response.message)
+
+
 def run():
     with grpc.insecure_channel('localhost:50051') as channel:
         stub = capitalizer_pb2_grpc.CapitalizerStub(channel)
@@ -56,6 +63,8 @@ def run():
         print_action(stub.DoAction, "HeLlO", capitalizer_pb2.Action.CAPITALIZE, "Capitalize:")
         print_action(stub.DoAction, "HeLlO", capitalizer_pb2.Action.UPPER, "Upper:")
         print_action(stub.DoAction, "HeLlO", capitalizer_pb2.Action.LOWER, "Lower:")
+
+        example_optional(stub.OptionalUpper)
 
 
 if __name__ == '__main__':
