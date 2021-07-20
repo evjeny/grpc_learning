@@ -36,6 +36,11 @@ def example_points_request(stub_method):
         print(f"({point.x}, {point.y}) = {point.value}")
 
 
+def print_action(stub_method, message: str, action, description: str):
+    response = stub_method(capitalizer_pb2.ActionRequest(message=message, action=action))
+    print(description, response.message)
+
+
 def run():
     with grpc.insecure_channel('localhost:50051') as channel:
         stub = capitalizer_pb2_grpc.CapitalizerStub(channel)
@@ -43,8 +48,14 @@ def run():
         print_call(stub.Capitalize, "hello", "Capitalize:")
         print_call(stub.Upper, "HeLlO", "Upper:")
         print_call(stub.Lower, "HeLlO", "Lower:")
+        
         example_image_request(stub.DrawA)
         example_points_request(stub.UpperPoints)
+
+        print_action(stub.DoAction, "HeLlO", capitalizer_pb2.Action.NOTHING, "Nothing:")
+        print_action(stub.DoAction, "HeLlO", capitalizer_pb2.Action.CAPITALIZE, "Capitalize:")
+        print_action(stub.DoAction, "HeLlO", capitalizer_pb2.Action.UPPER, "Upper:")
+        print_action(stub.DoAction, "HeLlO", capitalizer_pb2.Action.LOWER, "Lower:")
 
 
 if __name__ == '__main__':

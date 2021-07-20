@@ -34,3 +34,18 @@ class Capitalizer(capitalizer_pb2_grpc.CapitalizerServicer):
             for p in request.points
         ]
         return capitalizer_pb2.PointsResponse(points=result)
+    
+    def DoAction(self, request, context):
+        action = request.action
+        if action == capitalizer_pb2.Action.NOTHING:
+            message = request.message
+        elif action == capitalizer_pb2.Action.CAPITALIZE:
+            message = request.message.capitalize()
+        elif action == capitalizer_pb2.Action.UPPER:
+            message = request.message.upper()
+        elif action == capitalizer_pb2.Action.LOWER:
+            message = request.message.lower()
+        else:
+            message = "!!!"
+        
+        return capitalizer_pb2.StringResponse(message=message)

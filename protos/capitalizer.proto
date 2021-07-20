@@ -16,6 +16,9 @@ service Capitalizer {
 
   // Make all point values upper caes
   rpc UpperPoints (PointsRequest) returns (PointsResponse) {}
+
+  // Make an action on text
+  rpc DoAction (ActionRequest) returns (StringResponse) {}
 }
 
 message StringRequest {
@@ -46,4 +49,16 @@ message PointsRequest {
 
 message PointsResponse {
   repeated Point points = 1;
+}
+
+enum Action {
+  NOTHING = 0;
+  CAPITALIZE = 1;
+  UPPER = 2;
+  LOWER = 3;
+}
+
+message ActionRequest {
+  string message = 1;
+  Action action = 2;
 }

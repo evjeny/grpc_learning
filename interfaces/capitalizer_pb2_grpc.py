@@ -40,6 +40,11 @@ class CapitalizerStub(object):
                 request_serializer=capitalizer__pb2.PointsRequest.SerializeToString,
                 response_deserializer=capitalizer__pb2.PointsResponse.FromString,
                 )
+        self.DoAction = channel.unary_unary(
+                '/Capitalizer/DoAction',
+                request_serializer=capitalizer__pb2.ActionRequest.SerializeToString,
+                response_deserializer=capitalizer__pb2.StringResponse.FromString,
+                )
 
 
 class CapitalizerServicer(object):
@@ -81,6 +86,13 @@ class CapitalizerServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def DoAction(self, request, context):
+        """Make an action on text
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_CapitalizerServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -108,6 +120,11 @@ def add_CapitalizerServicer_to_server(servicer, server):
                     servicer.UpperPoints,
                     request_deserializer=capitalizer__pb2.PointsRequest.FromString,
                     response_serializer=capitalizer__pb2.PointsResponse.SerializeToString,
+            ),
+            'DoAction': grpc.unary_unary_rpc_method_handler(
+                    servicer.DoAction,
+                    request_deserializer=capitalizer__pb2.ActionRequest.FromString,
+                    response_serializer=capitalizer__pb2.StringResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -202,5 +219,22 @@ class Capitalizer(object):
         return grpc.experimental.unary_unary(request, target, '/Capitalizer/UpperPoints',
             capitalizer__pb2.PointsRequest.SerializeToString,
             capitalizer__pb2.PointsResponse.FromString,
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+
+    @staticmethod
+    def DoAction(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/Capitalizer/DoAction',
+            capitalizer__pb2.ActionRequest.SerializeToString,
+            capitalizer__pb2.StringResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
