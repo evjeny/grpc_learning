@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+// Service for string manipulations
+service Capitalizer {
+  // Make first letter upper case
+  rpc Capitalize (StringRequest) returns (StringResponse) {}
+
+  // Make all letters upper case
+  rpc Upper (StringRequest) returns (StringResponse) {}
+  
+  // Make all letters lower case
+  rpc Lower (StringRequest) returns (StringResponse) {}
+}
+
+message StringRequest {
+  string message = 1;
+}
+
+message StringResponse {
+  string message = 1;
+}
