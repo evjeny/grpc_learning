@@ -27,3 +27,10 @@ class Capitalizer(capitalizer_pb2_grpc.CapitalizerServicer):
         image.save(buffer, "png")
 
         return capitalizer_pb2.FileResponse(file=buffer.getvalue())
+    
+    def UpperPoints(self, request, context):
+        result = [
+            capitalizer_pb2.Point(x=p.x, y=p.y, value=p.value.upper())
+            for p in request.points
+        ]
+        return capitalizer_pb2.PointsResponse(points=result)

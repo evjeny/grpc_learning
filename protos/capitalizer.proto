@@ -13,6 +13,9 @@ service Capitalizer {
 
   // Draw upper case A on image
   rpc DrawA (FileRequest) returns (FileResponse) {}
+
+  // Make all point values upper caes
+  rpc UpperPoints (PointsRequest) returns (PointsResponse) {}
 }
 
 message StringRequest {
@@ -29,4 +32,18 @@ message FileRequest {
 
 message FileResponse {
   bytes file = 1;
+}
+
+message Point {
+  sint32 x = 1;
+  sint32 y = 2;
+  string value = 3;
+}
+
+message PointsRequest {
+  repeated Point points = 1;
+}
+
+message PointsResponse {
+  repeated Point points = 1;
 }

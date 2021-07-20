@@ -19,7 +19,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x11\x63\x61pitalizer.proto\" \n\rStringRequest\x12\x0f\n\x07message\x18\x01 \x01(\t\"!\n\x0eStringResponse\x12\x0f\n\x07message\x18\x01 \x01(\t\"\x1b\n\x0b\x46ileRequest\x12\x0c\n\x04\x66ile\x18\x01 \x01(\x0c\"\x1c\n\x0c\x46ileResponse\x12\x0c\n\x04\x66ile\x18\x01 \x01(\x0c\x32\xbe\x01\n\x0b\x43\x61pitalizer\x12/\n\nCapitalize\x12\x0e.StringRequest\x1a\x0f.StringResponse\"\x00\x12*\n\x05Upper\x12\x0e.StringRequest\x1a\x0f.StringResponse\"\x00\x12*\n\x05Lower\x12\x0e.StringRequest\x1a\x0f.StringResponse\"\x00\x12&\n\x05\x44rawA\x12\x0c.FileRequest\x1a\r.FileResponse\"\x00\x62\x06proto3'
+  serialized_pb=b'\n\x11\x63\x61pitalizer.proto\" \n\rStringRequest\x12\x0f\n\x07message\x18\x01 \x01(\t\"!\n\x0eStringResponse\x12\x0f\n\x07message\x18\x01 \x01(\t\"\x1b\n\x0b\x46ileRequest\x12\x0c\n\x04\x66ile\x18\x01 \x01(\x0c\"\x1c\n\x0c\x46ileResponse\x12\x0c\n\x04\x66ile\x18\x01 \x01(\x0c\",\n\x05Point\x12\t\n\x01x\x18\x01 \x01(\x11\x12\t\n\x01y\x18\x02 \x01(\x11\x12\r\n\x05value\x18\x03 \x01(\t\"\'\n\rPointsRequest\x12\x16\n\x06points\x18\x01 \x03(\x0b\x32\x06.Point\"(\n\x0ePointsResponse\x12\x16\n\x06points\x18\x01 \x03(\x0b\x32\x06.Point2\xf0\x01\n\x0b\x43\x61pitalizer\x12/\n\nCapitalize\x12\x0e.StringRequest\x1a\x0f.StringResponse\"\x00\x12*\n\x05Upper\x12\x0e.StringRequest\x1a\x0f.StringResponse\"\x00\x12*\n\x05Lower\x12\x0e.StringRequest\x1a\x0f.StringResponse\"\x00\x12&\n\x05\x44rawA\x12\x0c.FileRequest\x1a\r.FileResponse\"\x00\x12\x30\n\x0bUpperPoints\x12\x0e.PointsRequest\x1a\x0f.PointsResponse\"\x00\x62\x06proto3'
 )
 
 
@@ -152,10 +152,125 @@ _FILERESPONSE = _descriptor.Descriptor(
   serialized_end=147,
 )
 
+
+_POINT = _descriptor.Descriptor(
+  name='Point',
+  full_name='Point',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='x', full_name='Point.x', index=0,
+      number=1, type=17, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='y', full_name='Point.y', index=1,
+      number=2, type=17, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='value', full_name='Point.value', index=2,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=149,
+  serialized_end=193,
+)
+
+
+_POINTSREQUEST = _descriptor.Descriptor(
+  name='PointsRequest',
+  full_name='PointsRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='points', full_name='PointsRequest.points', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=195,
+  serialized_end=234,
+)
+
+
+_POINTSRESPONSE = _descriptor.Descriptor(
+  name='PointsResponse',
+  full_name='PointsResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='points', full_name='PointsResponse.points', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=236,
+  serialized_end=276,
+)
+
+_POINTSREQUEST.fields_by_name['points'].message_type = _POINT
+_POINTSRESPONSE.fields_by_name['points'].message_type = _POINT
 DESCRIPTOR.message_types_by_name['StringRequest'] = _STRINGREQUEST
 DESCRIPTOR.message_types_by_name['StringResponse'] = _STRINGRESPONSE
 DESCRIPTOR.message_types_by_name['FileRequest'] = _FILEREQUEST
 DESCRIPTOR.message_types_by_name['FileResponse'] = _FILERESPONSE
+DESCRIPTOR.message_types_by_name['Point'] = _POINT
+DESCRIPTOR.message_types_by_name['PointsRequest'] = _POINTSREQUEST
+DESCRIPTOR.message_types_by_name['PointsResponse'] = _POINTSRESPONSE
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 StringRequest = _reflection.GeneratedProtocolMessageType('StringRequest', (_message.Message,), {
@@ -186,6 +301,27 @@ FileResponse = _reflection.GeneratedProtocolMessageType('FileResponse', (_messag
   })
 _sym_db.RegisterMessage(FileResponse)
 
+Point = _reflection.GeneratedProtocolMessageType('Point', (_message.Message,), {
+  'DESCRIPTOR' : _POINT,
+  '__module__' : 'capitalizer_pb2'
+  # @@protoc_insertion_point(class_scope:Point)
+  })
+_sym_db.RegisterMessage(Point)
+
+PointsRequest = _reflection.GeneratedProtocolMessageType('PointsRequest', (_message.Message,), {
+  'DESCRIPTOR' : _POINTSREQUEST,
+  '__module__' : 'capitalizer_pb2'
+  # @@protoc_insertion_point(class_scope:PointsRequest)
+  })
+_sym_db.RegisterMessage(PointsRequest)
+
+PointsResponse = _reflection.GeneratedProtocolMessageType('PointsResponse', (_message.Message,), {
+  'DESCRIPTOR' : _POINTSRESPONSE,
+  '__module__' : 'capitalizer_pb2'
+  # @@protoc_insertion_point(class_scope:PointsResponse)
+  })
+_sym_db.RegisterMessage(PointsResponse)
+
 
 
 _CAPITALIZER = _descriptor.ServiceDescriptor(
@@ -195,8 +331,8 @@ _CAPITALIZER = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=150,
-  serialized_end=340,
+  serialized_start=279,
+  serialized_end=519,
   methods=[
   _descriptor.MethodDescriptor(
     name='Capitalize',
@@ -235,6 +371,16 @@ _CAPITALIZER = _descriptor.ServiceDescriptor(
     containing_service=None,
     input_type=_FILEREQUEST,
     output_type=_FILERESPONSE,
+    serialized_options=None,
+    create_key=_descriptor._internal_create_key,
+  ),
+  _descriptor.MethodDescriptor(
+    name='UpperPoints',
+    full_name='Capitalizer.UpperPoints',
+    index=4,
+    containing_service=None,
+    input_type=_POINTSREQUEST,
+    output_type=_POINTSRESPONSE,
     serialized_options=None,
     create_key=_descriptor._internal_create_key,
   ),
